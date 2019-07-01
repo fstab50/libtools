@@ -11,15 +11,15 @@ Returns:
 
 import sys
 import datetime
-from xlines.statics import PACKAGE, LICENSE
-from xlines import Colors
-from xlines import __version__
+from libtools.statics import PACKAGE, LICENSE
+from libtools import Colors
+from libtools._version import __version__
 
 
 # url formatting
-url_doc = Colors.URL + 'https://xlines.readthedocs.io' + Colors.RESET
-url_sc = Colors.URL + 'https://github.com/fstab50/xlines' + Colors.RESET
-url_lic = Colors.URL + 'http://xlines.readthedocs.io/en/latest/license.html' + Colors.RESET
+url_doc = Colors.URL + 'https://libtools.readthedocs.io' + Colors.RESET
+url_sc = Colors.URL + 'https://github.com/fstab50/libtools' + Colors.RESET
+url_lic = Colors.URL + 'http://libtools.readthedocs.io/en/latest/license.html' + Colors.RESET
 
 # copyright range thru current calendar year
 current_year = datetime.datetime.today().year
