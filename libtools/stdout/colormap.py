@@ -9,7 +9,7 @@ Module Classes:
 
 """
 
-from pyaws import Colors
+from libtools import Colors
 
 # color object
 co = Colors()

@@ -92,6 +92,3 @@ class Colors():
     # special formats
     URL = UNDERLINE + CYAN
     TITLE = UNDERLINE + BOLD
-
-    #except AttributeError as e:
-    #    logger.info('Ansi color code not found (%s), returning reset code' % str(e))
