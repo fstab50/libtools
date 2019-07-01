@@ -16,7 +16,6 @@ Module Attributes:
 import os
 import inspect
 import logging
-from libtools.script_utils import get_os
 from libtools._version import __version__
 
 logger = logging.getLogger(__version__)
@@ -39,13 +38,11 @@ def os_parityPath(path):
 
 try:
 
-    env_info = get_os(detailed=True)
-    OS = env_info['os_type']
-    user_home = env_info['HOME']
+    user_home = os.getenv('HOME')
 
     if user_home is None:
         user_home = '/tmp'
-        
+
 except KeyError as e:
     logger.critical(
         '%s: %s variable is required and not found in the environment' %
@@ -55,8 +52,8 @@ except KeyError as e:
 else:
     # project
     PACKAGE = 'libtools'
-    LICENSE = 'MIT'
-    LICENSE_DESC = 'MIT'
+    LICENSE = 'GPL v3'
+    LICENSE_DESC = 'General Public License v3'
 
     # logging parameters
     enable_logging = True
@@ -64,6 +61,9 @@ else:
     log_filename = PACKAGE + '.log'
     log_dir = os_parityPath(user_home + '/' + 'logs')
     log_path = os_parityPath(log_dir + '/' + log_filename)
+
+    if not os.path.exists(log_dir):
+        os.makedirs(log_dir)
 
     local_config = {
         "PROJECT": {
