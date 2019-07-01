@@ -54,6 +54,11 @@ setup-venv:    ## Create and activiate python venv
 	$(PIP_CALL) install -r $(REQUIREMENT)
 
 
+.PHONY: artifacts
+artifacts:	  ## Generate documentation build artifacts (*.rst)
+	$(PANDOC_CALL) --from=markdown --to=rst README.md --output=README.rst
+
+
 .PHONY: test
 test:     ## Run pytest unittests
 	if [ $(PDB) ]; then PDB = "true"; \
@@ -110,13 +115,13 @@ buildrpm-aml:  artifacts  ## Build Amazon Linux 2 distribution (.rpm) os package
 
 
 .PHONY: testpypi
-testpypi: build     ## Deploy to testpypi without regenerating prebuild artifacts
+testpypi: clean build artifacts   ## Deploy to testpypi without regenerating prebuild artifacts
 	@echo "Deploy $(PROJECT) to test.pypi.org"
 	. $(VENV_DIR)/bin/activate && twine upload --repository testpypi dist/*
 
 
 .PHONY: pypi
-pypi: clean build    ## Deploy to pypi without regenerating prebuild artifacts
+pypi: clean build artifacts   ## Deploy to pypi without regenerating prebuild artifacts
 	@echo "Deploy $(PROJECT) to pypi.org"
 	. $(VENV_DIR)/bin/activate && twine upload --repository pypi dist/*
 	rm -f $(CUR_DIR)/README.rst
