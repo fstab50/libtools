@@ -11,19 +11,15 @@ Returns:
 
 import sys
 import datetime
-from keyup.statics import PACKAGE, LICENSE
-from keyup.colors import Colors
-from keyup import __version__
+from xlines.statics import PACKAGE, LICENSE
+from xlines import Colors
+from xlines import __version__
 
 
 # url formatting
-url_doc = Colors.URL + 'https://keyup.readthedocs.io' + Colors.RESET
-url_sc = Colors.URL + 'https://bitbucket.org/blakeca00/keyup' + Colors.RESET
-url_lic = Colors.URL + 'http://keyup.readthedocs.io/en/latest/license.html' + Colors.RESET
-url_aws = Colors.URL + 'https://aws.amazon.com' + Colors.RESET
-
-# aws header
-aws_title = Colors.ORANGE + 'Amazon Web Services' + Colors.RESET
+url_doc = Colors.URL + 'https://xlines.readthedocs.io' + Colors.RESET
+url_sc = Colors.URL + 'https://github.com/fstab50/xlines' + Colors.RESET
+url_lic = Colors.URL + 'http://xlines.readthedocs.io/en/latest/license.html' + Colors.RESET
 
 # copyright range thru current calendar year
 current_year = datetime.datetime.today().year
@@ -31,7 +27,7 @@ copyright_range = '2017-' + str(current_year)
 
 # python version number header
 python_version = sys.version.split(' ')[0]
-python_header = 'Python' + Colors.RESET + ' ' + python_version
+python_header = 'python' + Colors.RESET + ' ' + python_version
 
 # formatted package header
 package_name = Colors.BOLD + PACKAGE + Colors.RESET
@@ -42,12 +38,12 @@ package_name = Colors.BOLD + PACKAGE + Colors.RESET
 
 title_separator = (
     ('\t').expandtabs(4) +
-    '__________________________________________________________________\n\n\n\n'
+    '__________________________________________________________________\n\n\n'
     )
 
 package_header = (
-    '\n\t'.expandtabs(15) + Colors.CYAN + PACKAGE + Colors.RESET + ' version: ' + Colors.WHITE +
-    Colors.BOLD + __version__ + Colors.RESET + '    |    ' + python_header + '\n\n\n'
+    '\n\t\t' + Colors.DARK_BLUE + PACKAGE + Colors.RESET + ' version: ' + Colors.WHITE +
+    Colors.BOLD +  __version__ + Colors.RESET + '  |  ' + python_header + '\n\n'
     )
 
 copyright = Colors.LT2GRAY + """
@@ -61,17 +57,6 @@ about_object = """
 
 """ + package_header + """
 
-
-    __________________________________________________________________
-
-
-         Automated Access Key Rotation for Amazon Web Services
-
-               - Documentation  :  """ + url_doc + """
-               - Source : """ + url_sc + """
-
-
-               Amazon Web Services   |   """ + url_aws + """
 
     __________________________________________________________________
 """ + copyright

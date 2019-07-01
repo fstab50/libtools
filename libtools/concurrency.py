@@ -4,7 +4,22 @@ Summary.
     Parallel processing module
 
 """
+import multiprocessing
 from multiprocessing.dummy import Pool
+
+
+def cpu_cores(logical=True):
+    """
+        Finds number of physical and logical cores on machine
+        Defaults to logical cores unless logical set to False
+
+    Returns:
+        # of logical cores (int) || physical cores (int)
+    """
+    physical_cores = multiprocessing.cpu_count()
+    if logical:
+        return len(os.sched_getaffinity(0))
+    return physical_cores
 
 
 def split_list(monolith, n):
