@@ -2,6 +2,7 @@
 Tools & Utilities Module
 """
 
+import os
 from libtools.userinput import bool_convert, bool_assignment, ascii_lowercase
 from libtools.userinput import range_test, range_bind, userchoice_mapping
 from libtools.time import *
@@ -11,7 +12,8 @@ from libtools.concurrency import split_list
 from libtools.progress import screen_dimensions, progress_meter
 
 # color formatting
-from libtools.stdout import Colors, ColorMap
+from libtools.stdout.colors import Colors
+from libtools.stdout.colormap import ColorMap, ColorAttributes
 
 # logging
 from libtools import logd
