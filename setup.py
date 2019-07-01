@@ -294,7 +294,7 @@ else:
     setup(
         name=_project,
         version=libtools.__version__,
-        description='Count the number of lines of code in a project',
+        description='Script Tools & General Utilities',
         long_description=read('DESCRIPTION.rst'),
         url='https://github.com/fstab50/libtools',
         author=libtools.__author__,
