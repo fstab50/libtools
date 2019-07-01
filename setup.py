@@ -1,6 +1,6 @@
 """
 
-xlines :  Copyright 2018-2019, Blake Huber
+libtools :  Copyright 2018-2019, Blake Huber
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -30,7 +30,7 @@ from setuptools.command.develop import develop
 from setuptools.command.install import install
 import getpass
 from codecs import open
-import xlines
+import libtools
 
 
 requires = [
@@ -38,11 +38,9 @@ requires = [
 ]
 
 
-_project = 'xlines'
+_project = 'libtools'
 _root = os.path.abspath(os.path.dirname(__file__))
-_ex_fname = 'exclusions.list'
-_ex_dirs_fname = 'directories.list'
-_comp_fname = 'xlines-completion.bash'
+_comp_fname = 'libtools-completion.bash'
 
 
 def _root_user():
@@ -157,16 +155,6 @@ class PostInstall(install):
                     os_parityPath('bash' + '/' + _comp_fname),
                     os_parityPath(completion_dir + '/' + _comp_fname)
                 )
-            if not os.path.exists(os_parityPath(config_dir + '/' + _ex_fname)):
-                copyfile(
-                    os_parityPath('config' + '/' + _ex_fname),
-                    os_parityPath(config_dir + '/' + _ex_fname)
-                )
-            if not os.path.exists(os_parityPath(config_dir + '/' + _ex_dirs_fname)):
-                copyfile(
-                    os_parityPath('config' + '/' + _ex_dirs_fname),
-                    os_parityPath(config_dir + '/' + _ex_dirs_fname)
-                )
         install.run(self)
 
 
@@ -219,16 +207,6 @@ class PostInstallRoot(install):
                     os_parityPath('bash' + '/' + _comp_fname),
                     os_parityPath(completion_dir + '/' + _comp_fname)
                 )
-            if not os.path.exists(os_parityPath(config_dir + '/' + _ex_fname)):
-                copyfile(
-                    os_parityPath('config' + '/' + _ex_fname),
-                    os_parityPath(config_dir + '/' + _ex_fname)
-                )
-            if not os.path.exists(os_parityPath(config_dir + '/' + _ex_dirs_fname)):
-                copyfile(
-                    os_parityPath('config' + '/' + _ex_dirs_fname),
-                    os_parityPath(config_dir + '/' + _ex_dirs_fname)
-                )
         install.run(self)
 
 
@@ -275,12 +253,12 @@ if _root_user():
 
     setup(
         name=_project,
-        version=xlines.__version__,
+        version=libtools.__version__,
         description='Count the number of lines of code in a project',
         long_description=read('DESCRIPTION.rst'),
-        url='https://github.com/fstab50/xlines',
-        author=xlines.__author__,
-        author_email=xlines.__email__,
+        url='https://github.com/fstab50/libtools',
+        author=libtools.__author__,
+        author_email=libtools.__email__,
         license='GPL-3.0',
         classifiers=[
             'Topic :: Software Development :: Build Tools',
@@ -299,13 +277,11 @@ if _root_user():
             'install': PostInstallRoot
         },
         data_files=[
-            (os_parityPath('/etc/bash_completion.d'), ['bash/' + _comp_fname]),
-            (os_parityPath(module_dir() + '/' + _project + '/config'), ['config/' + _ex_fname]),
-            (os_parityPath(module_dir() + '/' + _project + '/config'), ['config/' + _ex_dirs_fname])
+            (os_parityPath('/etc/bash_completion.d'), ['bash/' + _comp_fname])
         ],
         entry_points={
             'console_scripts': [
-                'xlines=xlines.cli:init_cli'
+                'libtools=libtools.cli:init_cli'
             ]
         },
         zip_safe=False
@@ -317,12 +293,12 @@ else:
 
     setup(
         name=_project,
-        version=xlines.__version__,
+        version=libtools.__version__,
         description='Count the number of lines of code in a project',
         long_description=read('DESCRIPTION.rst'),
-        url='https://github.com/fstab50/xlines',
-        author=xlines.__author__,
-        author_email=xlines.__email__,
+        url='https://github.com/fstab50/libtools',
+        author=libtools.__author__,
+        author_email=libtools.__email__,
         license='GPL-3.0',
         classifiers=[
             'Topic :: Software Development :: Build Tools',
@@ -341,13 +317,11 @@ else:
             'install': PostInstall
         },
         data_files=[
-            (os_parityPath(user_home() + '/' + '.bash_completion.d'), ['bash/' + _comp_fname]),
-            (os_parityPath(user_home() + '/' + '.config' + '/' + _project), ['config' + '/' + _ex_fname]),
-            (os_parityPath(user_home() + '/' + '.config' + '/' + _project), ['config' + '/' + _ex_dirs_fname])
+            (os_parityPath(user_home() + '/' + '.bash_completion.d'), ['bash/' + _comp_fname])
         ],
         entry_points={
             'console_scripts': [
-                'xlines=xlines.cli:init_cli'
+                'libtools=libtools.cli:init_cli'
             ]
         },
         zip_safe=False
