@@ -41,7 +41,7 @@ except Exception:
 
 ## the following imports require __version__  ##
 
-from pyaws import logd
+from libtools import logd
 
 PACKAGE = 'libtools'
 enable_logging = True

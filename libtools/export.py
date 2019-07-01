@@ -2,8 +2,8 @@ import sys
 import json
 import inspect
 from pygments import highlight, lexers, formatters
-from pyaws import logger
-from pyaws import __version__
+from libtools import logger
+from libtools import __version__
 
 
 def export_json_object(dict_obj, filename=None, logging=True):

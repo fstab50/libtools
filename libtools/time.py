@@ -16,7 +16,7 @@ Module Functions:
 import datetime
 import inspect
 import logging
-from pyaws._version import __version__
+from libtools._version import __version__
 
 logger = logging.getLogger(__version__)
 logger.setLevel(logging.INFO)

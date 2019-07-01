@@ -1,6 +1,6 @@
 """
 Summary:
-    pyaws Project-level Defaults and Settings
+    libtools Project-level Defaults and Settings
 
     - **Local Default Settings**: Local defaults for your specific installation are derived from settings found in:
 
@@ -16,8 +16,8 @@ Module Attributes:
 import os
 import inspect
 import logging
-from pyaws.script_utils import get_os
-from pyaws._version import __version__
+from libtools.script_utils import get_os
+from libtools._version import __version__
 
 logger = logging.getLogger(__version__)
 logger.setLevel(logging.INFO)
@@ -54,7 +54,7 @@ except KeyError as e:
 
 else:
     # project
-    PACKAGE = 'pyaws'
+    PACKAGE = 'libtools'
     LICENSE = 'MIT'
     LICENSE_DESC = 'MIT'
 

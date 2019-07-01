@@ -8,7 +8,7 @@ import inspect
 import logging
 import logging.handlers
 from pathlib import Path
-from pyaws.statics import local_config
+from libtools.statics import local_config
 
 
 syslog = logging.getLogger()

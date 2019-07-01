@@ -18,8 +18,8 @@ Message Prefixes:
 Severity
 """
 import inspect
-from pyaws.colors import Colors
-from pyaws import logger
+from libtools.colors import Colors
+from libtools import logger
 
 
 # prefix handling
