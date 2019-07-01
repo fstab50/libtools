@@ -1,3 +1,5 @@
+pandoc
+pkginfo
+pygments
 setuptools
-boto3
-pyaws
+twine
