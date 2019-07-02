@@ -12,8 +12,8 @@ from libtools.concurrency import split_list
 from libtools.progress import screen_dimensions, progress_meter
 
 # color formatting
-from libtools.stdout.colors import Colors
-from libtools.stdout.colormap import ColorMap, ColorAttributes
+from libtools.stdout import Colors
+from libtools.stdout import ColorMap, ColorAttributes
 
 # logging
 from libtools import logd
@@ -38,10 +38,6 @@ except Exception:
     # windows
     from libtools.oscodes_win import exit_codes
 
-
-## the following imports require __version__  ##
-
-from libtools import logd
 
 # shared, global logger object
 logger = logd.getLogger(__version__)
