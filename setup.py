@@ -254,7 +254,7 @@ if _root_user():
     setup(
         name=_project,
         version=libtools.__version__,
-        description='Count the number of lines of code in a project',
+        description='Generic Tools & Utilities for processing i/o',
         long_description=read('DESCRIPTION.rst'),
         url='https://github.com/fstab50/libtools',
         author=libtools.__author__,
@@ -294,7 +294,7 @@ else:
     setup(
         name=_project,
         version=libtools.__version__,
-        description='Script Tools & General Utilities',
+        description='Generic Tools & Utilities for processing i/o',
         long_description=read('DESCRIPTION.rst'),
         url='https://github.com/fstab50/libtools',
         author=libtools.__author__,
