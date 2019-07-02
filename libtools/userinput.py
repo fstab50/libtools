@@ -10,7 +10,7 @@ import sys
 import re
 import logging
 from string import ascii_lowercase
-from libtools._version import __version__
+from libtools import __version__
 
 logger = logging.getLogger(__version__)
 logger.setLevel(logging.INFO)

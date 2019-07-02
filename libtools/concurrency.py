@@ -6,6 +6,7 @@ Summary.
 """
 import multiprocessing
 from multiprocessing.dummy import Pool
+from libtools import logger
 
 
 def cpu_cores(logical=True):

@@ -13,7 +13,7 @@ import sys
 import datetime
 from libtools.statics import PACKAGE, LICENSE
 from libtools import Colors
-from libtools._version import __version__
+from libtools import __version__
 
 
 # url formatting
