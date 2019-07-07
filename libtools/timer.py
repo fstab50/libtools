@@ -17,7 +17,7 @@ from libtools import logger
 
 class TimeDuration():
     """
-        Timer class; accuracy to 100th of a second
+        Timer class; accuracy to 100th of a second (default, user changeable)
 
     Instantiation:
         >>>  td = TimeDuration(accuracy=2)    # accuracy = decimal places; hundreds of a second (1.00)
