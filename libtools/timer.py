@@ -16,7 +16,17 @@ from libtools import logger
 
 
 class TimeDuration():
-    """Timer class; accuracy to 100th of a second"""
+    """
+        Timer class; accuracy to 100th of a second
+
+    Instantiation:
+        >>>  td = TimeDuration(accuracy=2)    # accuracy = decimal places; hundreds of a second (1.00)
+        >>>  s_time = td.start()
+        >>>  e_time = td.end()
+        >>>  print(e_time)
+
+        $ 31.29    #  seconds
+    """
     def __init__(self, accuracy=2):
         self.start_time = None
         self.end_time = None
@@ -24,7 +34,7 @@ class TimeDuration():
 
     def start(self):
         self.start_time = time.time()
-        return self.start_time
+        return self.__repr__()
 
     def __repr__(self):
         return time.strftime('%H:%M:%S', time.localtime(self.start_time))
