@@ -7,7 +7,8 @@ Module Functions:
     - None
 
 Classes:
-    - TimeDuration: Measures duration
+    - TimeDuration: Measures elapsed time duration (seconds).
+      User configurable precision level
 
 """
 import time
