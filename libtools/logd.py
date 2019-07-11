@@ -1,18 +1,18 @@
 """
-Project-level logging module
+Summary:
+    Project-level logging module
 
 """
-import os
-import sys
 import inspect
 import logging
 import logging.handlers
-from pathlib import Path
-from libtools.statics import local_config
 
+from keyup.statics import local_config
 
 syslog = logging.getLogger()
 syslog.setLevel(logging.DEBUG)
+
+valid_modes = ('STEAM', 'FILE', 'SYSLOG')
 
 
 def mode_assignment(arg):
@@ -30,32 +30,6 @@ def mode_assignment(arg):
         return None
 
 
-def logging_prep(mode):
-    """
-    Summary:
-        prerequisites for log file generation
-    Return:
-        Success | Failure, TYPE: bool
-    """
-    try:
-        if mode == 'FILE':
-
-            log_path = local_config['LOGGING']['LOG_PATH']
-            # path: path to log dir
-            path, log_dirname = os.path.split(log_path)
-
-            if not os.path.exists(path):
-                os.makedirs(path)
-
-            if not os.path.exists(log_path):
-                Path(log_path).touch(mode=0o644, exist_ok=True)
-
-    except OSError as e:
-        syslog.exception(f'{inspect.stack()[0][3]}: Failure while seeding log file path: {e}')
-        return False
-    return True
-
-
 def getLogger(*args, **kwargs):
     """
     Summary:
@@ -69,8 +43,40 @@ def getLogger(*args, **kwargs):
             - log to system logger (syslog)
 
     Returns:
-        logger object | TYPE: logging
+        logging object | TYPE: logging singleton
     """
+    def _logconfig_file(logger_object):
+        # file handler
+        f_handler = logging.FileHandler(local_config['LOGGING']['LOG_PATH'])
+        f_formatter = logging.Formatter(file_format, asctime_format)
+        f_handler.setFormatter(f_formatter)
+        logger.addHandler(f_handler)
+        logger.setLevel(logging.DEBUG)
+        return logger
+
+    def _logconfig_stdout(logger_object):
+        # stream handlers
+        s_handler = logging.StreamHandler()
+        s_formatter = logging.Formatter(stream_format)
+        s_handler.setFormatter(s_formatter)
+        logger.addHandler(s_handler)
+        logger.setLevel(logging.DEBUG)
+        return logger
+
+    def _logconfig_syslog(logger_object):
+        sys_handler = logging.handlers.SysLogHandler(address='/dev/log', facility=syslog_facility)
+        sys_formatter = logging.Formatter(syslog_format)
+        sys_handler.setFormatter(sys_formatter)
+        logger.addHandler(sys_handler)
+        logger.setLevel(logging.DEBUG)
+        return logger
+
+    def _logmode_map(mode, _lobject):
+        return {
+                "FILE": _logconfig_file,
+                "STREAM": _logconfig_stdout,
+                "SYSLOG": _logconfig_syslog,
+            }.get(mode, _logconfig_stdout)(_lobject)
 
     log_mode = local_config['LOGGING']['LOG_MODE']
 
@@ -88,56 +94,27 @@ def getLogger(*args, **kwargs):
     else:
         syslog_facility = 'user'
 
-    # all formats
+    # timestamp; all modes
     asctime_format = "%Y-%m-%d %H:%M:%S"
 
-    # objects
-    logger = logging.getLogger(*args, **kwargs)
-    logger.propagate = False
-
     try:
+        # objects
+        logger = logging.getLogger(*args, **kwargs)
+        logger.propagate = False
+
         if not logger.handlers:
             # branch on output format, default to stream
-            if mode_assignment(log_mode) == 'FILE':
+            return _logmode_map(mode_assignment(log_mode, logger))
 
-                # file handler
-                if logging_prep(mode_assignment(log_mode)):
+        if mode_assignment(log_mode) not in valid_modes:
+            ex = Exception(
+                '%s: Unsupported mode indicated by log_mode value: %s' %
+                (inspect.stack()[0][3], str(log_mode)))
+            raise ex
 
-                    f_handler = logging.FileHandler(local_config['LOGGING']['LOG_PATH'])
-                    f_formatter = logging.Formatter(file_format, asctime_format)
-                    f_handler.setFormatter(f_formatter)
-                    logger.addHandler(f_handler)
-                    logger.setLevel(logging.DEBUG)
-
-                else:
-                    syslog.warning(f'{inspect.stack()[0][3]}: Log preparation fail - exit')
-                    sys.exit(1)
-
-            elif mode_assignment(log_mode) == 'STREAM':
-                # stream handlers
-                s_handler = logging.StreamHandler()
-                s_formatter = logging.Formatter(stream_format)
-                s_handler.setFormatter(s_formatter)
-                logger.addHandler(s_handler)
-                logger.setLevel(logging.DEBUG)
-
-            elif mode_assignment(log_mode) == 'SYSLOG':
-                sys_handler = logging.handlers.SysLogHandler(address='/dev/log', facility=syslog_facility)
-                sys_formatter = logging.Formatter(syslog_format)
-                sys_handler.setFormatter(sys_formatter)
-                logger.addHandler(sys_handler)
-                logger.setLevel(logging.DEBUG)
-
-            else:
-                syslog.warning(
-                    '%s: [WARNING]: log_mode value of (%s) unrecognized - not supported' %
-                    (inspect.stack()[0][3], str(log_mode))
-                    )
-                ex = Exception(
-                    '%s: Unsupported mode indicated by log_mode value: %s' %
-                    (inspect.stack()[0][3], str(log_mode))
-                    )
-                raise ex
     except OSError as e:
+        syslog.warning(
+            '%s: [WARN]: Unknown error configuring logging objects for log mode (%s)' %
+            (inspect.stack()[0][3], str(log_mode))
+        )
         raise e
-    return logger
