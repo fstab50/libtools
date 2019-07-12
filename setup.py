@@ -34,7 +34,7 @@ import libtools
 
 
 requires = [
-    'pygments'
+    'Pygments'
 ]
 
 
