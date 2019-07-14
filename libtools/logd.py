@@ -124,7 +124,7 @@ def getLogger(*args, **kwargs):
                 "FILE": _logconfig_file,
                 "STREAM": _logconfig_stdout,
                 "SYSLOG": _logconfig_syslog,
-            }.get(mode, _logconfig_stdout)(_lobject)
+            }.get(mode, lambda x: _logconfig_stdout)(_lobject)
 
     # query local configuration for logging methodology
     log_mode = local_config['LOGGING']['LOG_MODE']
@@ -146,7 +146,7 @@ def getLogger(*args, **kwargs):
 
         if not logger.handlers:
             # branch on output format, default to stream
-            return _logmode_map(mode_assignment(log_mode, logger))
+            return _logmode_map(mode_assignment(log_mode), logger)
 
     except OSError as e:
         syslog.warning(
