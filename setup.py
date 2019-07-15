@@ -24,10 +24,7 @@ import sys
 import platform
 import subprocess
 from shutil import which
-from shutil import copy2 as copyfile
 from setuptools import setup, find_packages
-from setuptools.command.develop import develop
-from setuptools.command.install import install
 import getpass
 from codecs import open
 import libtools
@@ -65,15 +62,6 @@ def _set_pythonpath():
     os.environ['PYTHONPATH'] = '/'
 
 
-def create_artifact(object_path, type):
-    """Creates post install filesystem artifacts"""
-    if type == 'file':
-        with open(object_path, 'w') as f1:
-            f1.write(sourcefile_content())
-    elif type == 'dir':
-        os.makedirs(object_path)
-
-
 def module_dir():
     """Filsystem location of Python3 modules"""
     bin_path = which('python3.6') or which('python3.7')
@@ -94,13 +82,6 @@ def os_parityPath(path):
     return path
 
 
-class PostInstallDevelop(develop):
-    """ post-install, development """
-    def run(self):
-        subprocess.check_call("bash scripts/post-install-dev.sh".split())
-        develop.run(self)
-
-
 def preclean(dst):
     if os.path.exists(dst):
         os.remove(dst)
@@ -110,15 +91,6 @@ def preclean(dst):
 def read(fname):
     basedir = os.path.dirname(sys.argv[0])
     return open(os.path.join(basedir, fname)).read()
-
-
-def sourcefile_content():
-    sourcefile = """
-    for bcfile in ~/.bash_completion.d/* ; do
-        [ -f "$bcfile" ] && . $bcfile
-    done\n
-    """
-    return sourcefile
 
 
 def user_home():
@@ -157,7 +129,6 @@ setup(
     ],
     keywords='code development tools',
     packages=find_packages(exclude=['assets', 'docs', 'reports', 'scripts', 'tests']),
-    include_package_data=True,
     install_requires=requires,
     python_requires='>=3.6, <4',
     zip_safe=False
