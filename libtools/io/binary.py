@@ -1,7 +1,7 @@
 """
 Summary.
 
-    Binary object detection
+    Binary file object detection
 
 Use:
 
