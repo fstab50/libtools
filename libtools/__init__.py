@@ -44,3 +44,4 @@ from libtools.usermessage import stdout_message
 from libtools.export import export_json_object
 from libtools.concurrency import split_list
 from libtools.progress import screen_dimensions, progress_meter
+from libtools.io import BinaryFile

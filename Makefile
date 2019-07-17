@@ -84,36 +84,6 @@ build: pre-build setup-venv   ## Build dist, increment version || force version 
 	cd $(CUR_DIR) && $(PYTHON3_PATH) setup.py sdist
 
 
-.PHONY: builddeb
-builddeb:     ## Build Debian distribution (.deb) os package
-	@echo "Building Debian package format of $(PROJECT)"; \
-	$(YUM_CALL) install -y epel-release
-	$(YUM_CALL) install -y alien
-	$(ALIEN_CALL) --to-deb dist/xlines-*.noarch.rpm
-
-
-.PHONY: buildrpm-rhel
-buildrpm-rhel:  artifacts   ## Build Redhat distribution (.rpm) os package
-	sudo sed -i '/env_reset/d' /etc/sudoers;
-	$(YUM_CALL) -y install epel-release which
-	$(YUM_CALL) -y install python36 python36-pip python36-setuptools python36-devel
-	sudo -H $(PIP3_CALL) install -U pip setuptools
-	sudo cp -r /usr/local/lib/python3.*/site-packages/setuptools* /usr/lib/python3.*/site-packages/
-	sudo cp -r /usr/local/lib/python3.*/site-packages/pkg_resources* /usr/lib/python3.*/site-packages/
-	$(PYTHON3_PATH) setup_rpm.py bdist_rpm --requires=$(RHEL_REQUIRES) --python='/usr/bin/python3' --post-install='scripts/rpm_postinstall.sh'
-
-
-.PHONY: buildrpm-aml
-buildrpm-aml:  artifacts  ## Build Amazon Linux 2 distribution (.rpm) os package
-	$(YUM_CALL) -y install python3 python3-devel python3-pip python3-setuptools which sudo rpm-build
-	sudo -H $(PIP3_CALL) install -U pip setuptools pygments
-	cp -r /usr/local/lib64/python3.*/site-packages/Pygments*  .
-	cp -r /usr/local/lib64/python3.*/site-packages/pygments*  .
-	sudo cp -r /usr/local/lib/python3.*/site-packages/setuptools* /usr/lib/python3.*/site-packages/
-	sudo cp -r /usr/local/lib/python3.*/site-packages/pkg_resources* /usr/lib/python3.*/site-packages/
-	$(PYTHON3_PATH) setup_rpm.py bdist_rpm --requires=$(AML_REQUIRES) --python='/usr/bin/python3'
-
-
 .PHONY: testpypi
 testpypi: clean build artifacts   ## Deploy to testpypi without regenerating prebuild artifacts
 	@echo "Deploy $(PROJECT) to test.pypi.org"
