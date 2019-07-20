@@ -130,6 +130,7 @@ setup(
     keywords='code development tools',
     packages=find_packages(exclude=['assets', 'docs', 'reports', 'scripts', 'tests']),
     install_requires=requires,
+    setup_requires=requires,
     python_requires='>=3.6, <4',
     zip_safe=False
 )
