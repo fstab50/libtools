@@ -13,13 +13,10 @@ Module Functions:
     - convert_dt_time:
         Convert datetime objects to human-readable string output with Formatting
 """
+
 import datetime
 import inspect
-import logging
-from libtools import __version__
-
-logger = logging.getLogger(__version__)
-logger.setLevel(logging.INFO)
+from libtools import logger
 
 
 def convert_strtime_datetime(dt_str):

@@ -5,15 +5,9 @@ Summary:
     User Input Manipulation
 
 """
-import os
-import sys
 import re
-import logging
 from string import ascii_lowercase
-from libtools import __version__
-
-logger = logging.getLogger(__version__)
-logger.setLevel(logging.INFO)
+from libtools import logger
 
 
 def bool_assignment(arg, patterns=None):

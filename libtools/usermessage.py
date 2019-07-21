@@ -16,11 +16,11 @@ Message Prefixes:
     - <user defined>        Cyan
 
 Severity
+
 """
 import inspect
 from libtools import Colors
 from libtools import logger
-
 
 # prefix handling
 critical_status = ('ERROR', 'FAIL', 'WTF', 'STOP', 'HALT', 'EXIT', 'F*CK')
