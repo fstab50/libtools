@@ -6,12 +6,8 @@ Pretest Setup | pytest
 import os
 import subprocess
 import inspect
-import logging
 from shutil import which
-
-
-logger = logging.getLogger()
-logger.setLevel(logging.INFO)
+from libtools import logger
 
 
 def awscli_region(profile_name):
