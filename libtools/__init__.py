@@ -38,7 +38,7 @@ logger = logd.getLogger(__version__)
 # dependendent imports below this line
 from libtools.userinput import bool_convert, bool_assignment, ascii_lowercase
 from libtools.userinput import range_test, range_bind, userchoice_mapping
-from libtools.time import *
+from libtools.time import convert_dt_time, convert_timedelta, TimeDelta, convert_dt_human
 from libtools.timer import TimeDuration
 from libtools.usermessage import stdout_message
 from libtools.concurrency import split_list

@@ -9,7 +9,7 @@ Module Classes:
 
 """
 
-from libtools.stdout import Colors
+from libtools.colors import Colors
 
 # color object
 co = Colors()

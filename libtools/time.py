@@ -105,7 +105,7 @@ def convert_timedelta(duration):
     return days, hours, minutes, seconds
 
 
-def convert_dt_time(duration, return_iter=False):
+def convert_dt_human(duration, return_iter=False):
     """
     Summary:
         convert timedelta objects to human readable output
