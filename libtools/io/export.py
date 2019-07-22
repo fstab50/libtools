@@ -38,7 +38,6 @@ def export_json_object(dict_obj, filename=None, logging=True):
                     logger.info(
                         '%s: Wrote %s to local filesystem location' %
                         (inspect.stack()[0][3], filename))
-
                 handle.close()
 
             except TypeError as e:
@@ -47,16 +46,20 @@ def export_json_object(dict_obj, filename=None, logging=True):
                     (inspect.stack()[0][3], str(e)))
 
         elif is_tty():
+            try:
 
-            json_str = json.dumps(dict_obj, indent=4, sort_keys=True)
+                # convert dict schema to json
+                json_str = json.dumps(dict_obj, indent=4, sort_keys=True)
 
-            print(
-                highlight(
-                    json_str,
-                    lexers.JsonLexer(),
-                    formatters.TerminalFormatter()
-                ).strip()
-            )
+                print(
+                    highlight(
+                        json_str,
+                        lexers.JsonLexer(),
+                        formatters.TerminalFormatter()
+                    ).strip()
+                )
+            except TypeError as e:
+                logger.info(f'element in json not serializable ({})'.format(e))
             if logging:
                 logger.info('%s: successful export to stdout' % inspect.stack()[0][3])
             return True
