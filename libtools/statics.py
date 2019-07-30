@@ -15,7 +15,10 @@ Module Attributes:
 
 import os
 import inspect
+import platform
 import logging
+from libtools.common import user_home as _userhome
+from libtools.common import os_parityPath
 from libtools._version import __version__
 
 logger = logging.getLogger(__version__)
@@ -38,7 +41,7 @@ def os_parityPath(path):
 
 try:
 
-    user_home = os.getenv('HOME')
+    user_home = _userhome()
 
     if user_home is None:
         user_home = '/tmp'
