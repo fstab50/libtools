@@ -82,7 +82,7 @@ class Colors():
     BOLD = '\033[1m'
     UNBOLD = '\033[22m'
     UNDERLINE = '\033[4m'
-    ITALIC = '\e[3m'
+    ITALIC = '\033[3m'
     END = '\033[0m'
     REVERSE = '\033[;7m'
     RESET = '\033[0;0m'

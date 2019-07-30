@@ -14,7 +14,7 @@ from libtools.statics import local_config
 syslog = logging.getLogger()
 syslog.setLevel(logging.DEBUG)
 
-valid_modes = ('STEAM', 'FILE', 'SYSLOG')
+valid_modes = ('STREAM', 'FILE', 'SYSLOG')
 
 
 def mode_assignment(mode):
