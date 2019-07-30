@@ -59,9 +59,9 @@ def export_json_object(dict_obj, filename=None, logging=True):
                     ).strip()
                 )
             except TypeError as e:
-                logger.info(f'element in json not serializable ({})'.format(e))
+                logger.info('element in json not serializable ({})'.format(e))
             if logging:
-                logger.info('%s: successful export to stdout' % inspect.stack()[0][3])
+                logger.info('{}: successful export to stdout'.format(inspect.stack()[0][3]))
             return True
 
         else:
@@ -74,5 +74,5 @@ def export_json_object(dict_obj, filename=None, logging=True):
             (inspect.stack()[0][3], filename, str(e)))
         return False
     if logging:
-        logger.info('export_file_object: successful export to %s' % filename)
+        logger.info('export_file_object: successful export to {}'.format(filename))
     return True
