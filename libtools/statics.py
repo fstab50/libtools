@@ -17,8 +17,6 @@ import os
 import inspect
 import platform
 import logging
-from libtools.facilities import user_home as _userhome
-from libtools.facilities import os_parityPath
 from libtools._version import __version__
 
 logger = logging.getLogger(__version__)
@@ -38,6 +36,22 @@ def os_parityPath(path):
         return 'C:' + path
     return path
 
+
+def user_home():
+    """Returns os specific home dir for current user"""
+    try:
+        if platform.system() == 'Linux':
+            return os.path.expanduser('~')
+
+        elif platform.system() == 'Windows':
+            username = os.getenv('username')
+            return 'C:\\Users\\' + username
+
+        elif platform.system() == 'Java':
+            print('Unable to determine home dir, unsupported os type')
+            sys.exit(1)
+    except OSError as e:
+        raise e
 
 try:
 
