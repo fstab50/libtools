@@ -37,7 +37,7 @@ def os_parityPath(path):
     return path
 
 
-def user_home():
+def _userhome():
     """Returns os specific home dir for current user"""
     try:
         if platform.system() == 'Linux':

@@ -3,8 +3,8 @@
 
 """
 import os
-from libtools import Colors
-from keyup.colormap import ColorMap
+from libtools.colors import Colors
+from libtools.colors import ColorMap
 
 # globals
 c = Colors()
