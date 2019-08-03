@@ -12,7 +12,7 @@ cm = ColorMap()
 
 try:
 
-    from keyup.oscodes_unix import exit_codes
+    from libtools.oscodes_unix import exit_codes
     os_type = 'Linux'
     user_home = os.getenv('HOME')
     splitchar = '/'                                     # character for splitting paths (linux)
@@ -21,7 +21,7 @@ try:
     text = c.BLUE
 
 except Exception:
-    from keyup.oscodes_win import exit_codes           # non-specific os-safe codes
+    from libtools.oscodes_win import exit_codes           # non-specific os-safe codes
     os_type = 'Windows'
     username = os.getenv('username')
     splitchar = '\\'                                    # character for splitting paths (windows)
