@@ -5,10 +5,11 @@ from pygments import highlight, lexers, formatters
 from libtools import logger
 
 
-def export_json_object(dict_obj, filename=None, logging=True):
+def export_iterobject(dict_obj, filename=None, logging=True):
     """
     Summary:
-        exports object to block filesystem object
+        pretty prints json, list, and tuple objects or exports iter
+        object schema to filesystem object on the local filesystem
 
     Args:
         :dict_obj (dict): dictionary object
@@ -41,9 +42,9 @@ def export_json_object(dict_obj, filename=None, logging=True):
                 handle.close()
 
             except TypeError as e:
-                logger.warning(
-                    '%s: object in dict not serializable: %s' %
-                    (inspect.stack()[0][3], str(e)))
+                fx = inspect.stack()[0][3]
+                logger.warning('{}: object in dict not serializable: {}'.format(fx, str(e)))
+                raise e
 
         elif is_tty():
             try:
