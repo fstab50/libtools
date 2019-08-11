@@ -29,6 +29,7 @@ class Colors():
     BLUE = '\033[94m'
     DARK_BLUE = '\033[38;5;95;38;5;24m'
     PURE_BLUE = '\u001b[38;5;27m'
+    BLUE_GRAY = '\u001b[38;4;188m' 
     GREEN = '\033[92m'
     DARK_GREEN = '\u001b[38;5;2m'
     YELLOW = '\033[93m'
@@ -77,6 +78,9 @@ class Colors():
     BKGND_BRIGHT_RED = '\u001b[41;1m'
     BKGND_BRIGHT_WHITE = '\u001b[47;1m'
     BKGND_BRIGHT_YELLOW = '\u001b[43;1m'
+
+    # special colors
+    HIGHLIGHT_YELLOW = '\u001b[38;5;190m'
 
     # formats
     BOLD = '\033[1m'
