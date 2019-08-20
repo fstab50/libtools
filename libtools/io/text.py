@@ -1,17 +1,11 @@
 """
 Summary.
 
-    Binary file object detection
+    Text file object detection using Linux binary dependency
 
 Use:
 
-    After instantiation, class object can be called repeatly without
-    re-initialization of static primitives used for detection
-
-    >>> b = BinaryFile()
-    >>> b.detect('/home/stacie/result.png')
-    >>> True
-
+    Not working
 """
 from shutil import which
 from libtools import logger
