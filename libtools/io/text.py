@@ -13,6 +13,7 @@ Use:
     >>> True
 
 """
+from shutil import which
 from libtools import logger
 
 
@@ -21,6 +22,10 @@ def is_text(path):
         Checks filesystem object using *nix file application provided
         with most modern Unix and Linux systems.  Returns False if
         file object cannot be read
+
+    Args:
+        :path (str): filesystem path ending in a file object
+            Example:  '/usr/bin/python3.6' or '/home/joeuser/image.png'
 
     Returns:
         - True || False, TYPE: bool
@@ -32,11 +37,10 @@ def is_text(path):
         return None
 
     try:
-        # correct for multple file objects in path
-        path = ' '.join(path.split()[:3])
 
         f = os.popen('file -bi ' + path, 'r')
-        contents = f.read()
+        contents = f.read().strip()
+
     except Exception:
         return False
     return contents.startswith('text')
