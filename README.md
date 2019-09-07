@@ -5,6 +5,6 @@
 
 Library of generic script utilities and tools
 
-**Version**: 0.2.4
+**Version**: 0.2.5
 
 * * *

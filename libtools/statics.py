@@ -73,11 +73,11 @@ else:
     LICENSE_DESC = 'General Public License v3'
 
     # logging parameters
-    enable_logging = True
+    enable_logging = False
     log_mode = 'FILE'
     log_filename = PACKAGE + '.log'
-    log_dir = os_parityPath(user_home + '/' + 'logs')
-    log_path = os_parityPath(log_dir + '/' + log_filename)
+    log_dir = os_parityPath(os.path.join(user_home, 'logs'))
+    log_path = os_parityPath(os.path.join(log_dir, log_filename))
 
     if not os.path.exists(log_dir):
         os.makedirs(log_dir)
