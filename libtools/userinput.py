@@ -107,8 +107,7 @@ def userchoice_mapping(choice):
     extend_b = ['b' + x for x in letters]
 
     # combine all
-    letters.extend(extend_a)
-    letters.extend(extend_b)
+    [letters.extend(x) for x in [extend_a, extend_b]][0]
     max_index = len(letters)
 
     # build lookup table (dict)
