@@ -40,7 +40,7 @@ from libtools.common import get_os, terminal_size
 from libtools.common import read_local_config, import_file_object, os_parityPath, user_home
 from libtools.concurrency import split_list
 from libtools.progress import screen_dimensions, progress_meter
-from libtools.numberfx import range_bind
+from libtools.numberfx import range_bind_advanced
 from libtools.time import convert_strtime_datetime, TimeDelta, convert_timedelta, convert_dt_human
 from libtools.timer import TimeDuration
 from libtools.userinput import bool_convert, bool_assignment, ascii_lowercase

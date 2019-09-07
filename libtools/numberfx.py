@@ -14,9 +14,10 @@ import inspect
 from libtools import logger
 
 
-def range_bind(x, minx, maxx):
+def range_bind_advanced(x, minx, maxx):
     """
         Bind an integer or floating point number (x) to min, max range
+        Flexible input data type, rounds to nearest integer if float
 
     Args:
         :x (int or float): Value to bind to a min, max range
