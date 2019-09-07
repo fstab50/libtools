@@ -16,7 +16,7 @@ from libtools import logger
 
 def range_bind(x, minx, maxx):
     """
-    Bind an integer (x) to min, max range
+        Bind an integer (x) to min, max range
 
     Args:
         :x (int): Value to bind to a min, max range
