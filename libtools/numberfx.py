@@ -16,10 +16,10 @@ from libtools import logger
 
 def range_bind(x, minx, maxx):
     """
-        Bind an integer (x) to min, max range
+        Bind an integer or floating point number (x) to min, max range
 
     Args:
-        :x (int): Value to bind to a min, max range
+        :x (int or float): Value to bind to a min, max range
         :minx (int): Minimum range (floor) value
         :maxx (int): Maximum range (ceiling) value
 
