@@ -25,22 +25,23 @@ def bool_assignment(arg, patterns=None):
             patterns = (
                 (re.compile(r'^(true|false)$', flags=re.IGNORECASE), lambda x: x.lower() == 'true'),
                 (re.compile(r'^(yes|no)$', flags=re.IGNORECASE), lambda x: x.lower() == 'yes'),
-                (re.compile(r'^(y|n)$', flags=re.IGNORECASE), lambda x: x.lower() == 'y')
+                (re.compile(r'^(y|n)$', flags=re.IGNORECASE), lambda x: x.lower() == 'y'),
+                (re.compile(r'^(0|1)$', flags=re.IGNORECASE), lambda x: bool(int(x)) == 1)
             )
-        if not arg:
-            return ''    # default selected
-        else:
-            for pattern, func in patterns:
-                if pattern.match(arg):
-                    return func(arg)
+        for pattern, func in patterns:
+            if pattern.match(arg):
+                return func(arg)
     except Exception as e:
         raise e
+    return None
 
 
 def bool_convert(variable):
     """
     Convert user input from string, int to bool
     """
+    pattern = (re.compile(r'^(true|false)$', flags=re.IGNORECASE), lambda x: x.lower() == 'true')
+
     try:
         if re.search('True', variable, re.IGNORECASE):
             return True
@@ -48,8 +49,16 @@ def bool_convert(variable):
             return False
     except TypeError as e:
         logger.error("Error: {} not interpreted. Return false. Error: {}".format(str(variable), str(e)))
+    return variable
+
+
+def is_bool(variable):
+    """Tests if provided parameter is bool data type"""
+    try:
+        if type(variable) is bool:
+            return True
+    except TypeError:
         return False
-    return bool(int(variable))
 
 
 def range_bind(min_value, max_value, value):
