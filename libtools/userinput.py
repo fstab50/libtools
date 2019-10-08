@@ -49,7 +49,7 @@ def bool_convert(variable):
     except TypeError as e:
         logger.error("Error: {} not interpreted. Return false. Error: {}".format(str(variable), str(e)))
         return False
-    return bool(int(variable))
+    return variable
 
 
 def range_bind(min_value, max_value, value):
