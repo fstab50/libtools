@@ -48,8 +48,16 @@ def bool_convert(variable):
             return False
     except TypeError as e:
         logger.error("Error: {} not interpreted. Return false. Error: {}".format(str(variable), str(e)))
-        return False
     return variable
+
+
+def is_bool(variable):
+    """Tests if provided parameter is bool data type"""
+    try:
+        if type(variable) is bool:
+            return True
+    except TypeError:
+        return False
 
 
 def range_bind(min_value, max_value, value):
