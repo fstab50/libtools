@@ -21,7 +21,6 @@ def mode_assignment(mode):
     """
     Translates arg to enforce proper assignment
     """
-    mode = mode.upper()
     return {
         'STREAM': 'STREAM',
         'CONSOLE': 'STREAM',
@@ -32,7 +31,7 @@ def mode_assignment(mode):
         'SYSLOG': 'SYSLOG',
         'MESSAGES': 'SYSLOG',
         'SYSTEM': 'SYSLOG'
-    }.get(mode, 'STREAM')
+    }.get(mode.upper(), 'STREAM')
 
 
 def logprep(mode):
