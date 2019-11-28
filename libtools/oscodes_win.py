@@ -17,15 +17,15 @@ exit_codes = {
         'Code': 0,
         'Reason': 'No error occurred'
     },
-    'E_DEPENDENCY': {
+    'EX_DEPENDENCY': {
         'Code': 1,
         'Reason': 'Missing required dependency'
     },
-    'E_DIR': {
+    'EX_DIR': {
         'Code': 2,
         'Reason': 'Failure to create log dir, log file'
     },
-    'E_ENVIRONMENT': {
+    'EX_ENVIRONMENT': {
         'Code': 3,
         'Reason': 'Incorrect shell, language interpreter, or operating system'
     },
@@ -37,27 +37,27 @@ exit_codes = {
         'Code': 77,
         'Reason': 'IAM user or role permissions do not allow this action'
     },
-    'E_AUTHFAIL': {
+    'EX_AUTHFAIL': {
         'Code': 5,
         'Reason': 'Authentication Fail'
     },
-    'E_BADPROFILE': {
+    'EX_BADPROFILE': {
         'Code': 6,
         'Reason': 'Local profile variable not set or incorrect'
     },
-    'E_USER_CANCEL': {
+    'EX_USER_CANCEL': {
         'Code': 7,
         'Reason': 'User abort'
     },
-    'E_BADARG': {
+    'EX_BADARG': {
         'Code': 8,
         'Reason': 'Bad input parameter'
     },
-    'E_EXPIRED_CREDS': {
+    'EX_EXPIRED_CREDS': {
         'Code': 9,
         'Reason': 'Credentials expired or otherwise no longer valid'
     },
-    'E_MISC': {
+    'EX_MISC': {
         'Code': 9,
         'Reason': 'Unknown Error'
     },
