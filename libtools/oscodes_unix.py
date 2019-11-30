@@ -18,7 +18,7 @@ exit_codes = {
         'Code': 0,
         'Reason': 'No error occurred'
     },
-    'E_DEPENDENCY': {
+    'EX_DEPENDENCY': {
         'Code': 1,
         'Reason': 'Missing required dependency'
     },

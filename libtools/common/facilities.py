@@ -87,8 +87,9 @@ def os_parityPath(path):
 def user_home():
     """Returns os specific home dir for current user"""
     try:
-        if platform.system() == 'Linux':
-            return os.path.expanduser('~')
+        if platform.system() == 'Linux' or platform.system() == 'Darwin':
+            # Linux or BSD Unix (Mac)
+            return os.path.expanduser('~') or os.environ.get('HOME')
 
         elif platform.system() == 'Windows':
             username = os.getenv('username')
