@@ -72,6 +72,9 @@ except KeyError as e:
     raise e
 
 else:
+
+    root = '/tmp'
+
     # project
     PACKAGE = 'libtools'
     LICENSE = 'GPL v3'
@@ -81,7 +84,7 @@ else:
     enable_logging = False
     log_mode = 'FILE'
     log_filename = PACKAGE + '.log'
-    log_dir = os_parityPath(os.path.join(user_home, 'logs'))
+    log_dir = os_parityPath(os.path.join(root, 'logs'))
     log_path = os_parityPath(os.path.join(log_dir, log_filename))
 
     if not os.path.exists(log_dir):
