@@ -4,6 +4,7 @@ Summary.
     Parallel processing module
 
 """
+import os
 import multiprocessing
 from multiprocessing.dummy import Pool
 from libtools import logger
