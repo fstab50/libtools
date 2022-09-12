@@ -38,3 +38,28 @@ class BinaryFile():
 
         except UnicodeDecodeError:
             return True
+
+    def use(self):
+        """
+        Args:  None
+
+        Returns:
+            text instructions for use of this class
+        """
+        instructions = """
+        Summary.
+
+            Class for detection of binary filesystem objects
+
+        Use:
+
+            After instantiation, class object can be called repeatly without
+            re-initialization of static primitives used for detection
+
+            >>> b = BinaryFile()
+            >>> b.detect('/home/stacie/result.png')
+            >>> True
+
+        """
+        print(instructions)
+        return True
