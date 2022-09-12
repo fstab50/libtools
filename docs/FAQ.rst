@@ -42,12 +42,12 @@ General Questions
 
 .. code:: bash
 
-    $ keyup --profile default --operation up          # rotate (change out) keys
+    $ libtools --profile default --operation up          # rotate (change out) keys
 
 
 List keys for the default awscli user: ::
 
-    $ keyup --profile default --operation list        # list key information
+    $ libtools --profile default --operation list        # list key information
 
 
 Back to :ref:`Frequently Asked Questions` Top
@@ -56,13 +56,13 @@ Back to :ref:`Frequently Asked Questions` Top
 
 .. _QG1:
 
-**Q**: Which set of access keys will ``keyup`` replace if my IAM user has 2 sets of keys?
+**Q**: Which set of access keys will ``libtools`` replace if my IAM user has 2 sets of keys?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 **Answer**
 
-    | If you have more than one keyset associated with your IAM user, `keyup <https://keyup.readthedocs.io>`__ compares the age of the two keysets in your account.  An IAM user identity  may be associated with a  |faq_link1| at a time.
+    | If you have more than one keyset associated with your IAM user, `libtools <https://libtools.readthedocs.io>`__ compares the age of the two keysets in your account.  An IAM user identity  may be associated with a  |faq_link1| at a time.
 
     Keyup examines the keys associated with your IAM user and replaces the oldest, *active* keyset.
 
@@ -104,7 +104,7 @@ Back to :ref:`Frequently Asked Questions` Top
 
 .. code:: bash
 
-    $ keyup --profile myIAMuser --user-name JoeUser --operation up
+    $ libtools --profile myIAMuser --user-name JoeUser --operation up
 
         # myIAMuser:  profile name alias for an IAM user with admin IAM permissions
         # JoeUser:    The IAM user account for which you wish to rotate access keys
@@ -121,7 +121,7 @@ Logging & Log Configuration
 
 .. _QL0:
 
-**Q**: How do I configure logging for ``keyup``?
+**Q**: How do I configure logging for ``libtools``?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **A**: Logging is turned off by default for any new installation.
@@ -130,7 +130,7 @@ Logging & Log Configuration
 
 .. code:: bash
 
-    $ keyup --configure
+    $ libtools --configure
 
 Answer 'True' when asked to enable logging.
 
@@ -143,20 +143,20 @@ Next select from one of two options:
 
 .. _QL1:
 
-**Q**: Why doesn't ``keyup`` produce any log output?
+**Q**: Why doesn't ``libtools`` produce any log output?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**A**: Logging is turned off by default for any new installation of **keyup**.
+**A**: Logging is turned off by default for any new installation of **libtools**.
 
     To turn on logging, start the configure menu via the following command:
 
 .. code:: bash
 
-    $ keyup --configure
+    $ libtools --configure
 
 Answer 'True' when asked to enable logging when answering the guided configuration questions.
 
-To verify logging is enabled in your specific keyup configuration, check that ``ENABLE_LOGGING``
+To verify logging is enabled in your specific libtools configuration, check that ``ENABLE_LOGGING``
 parameter is set to True by viewing the contents of your configuration file with the following command:
 
 .. code:: bash
@@ -183,20 +183,20 @@ It should display |link-faq1| syntax similar to below:
         },
         "LOGGING": {
             "ENABLE_LOGGING": true,
-            "LOG_FILENAME": "keyup.log",
+            "LOG_FILENAME": "libtools.log",
             "LOG_MODE": "FILE",
-            "LOG_PATH": "/home/user/logs/keyup.log",
+            "LOG_PATH": "/home/user/logs/libtools.log",
             "SYSLOG_FILE": false
         },
         "PROJECT": {
             "CONFIG_DATE": "2019-03-19 16:53 UTC",
             "CONFIG_DIR": ".config",
             "CONFIG_FILENAME": "config.json",
-            "CONFIG_PATH": "/home/user/.config/keyup/config.json",
-            "CONFIG_SUBDIR": "keyup",
+            "CONFIG_PATH": "/home/user/.config/libtools/config.json",
+            "CONFIG_SUBDIR": "libtools",
             "CONFIG_VERSION": "1.1.2",
             "HOME": "/home/user",
-            "PACKAGE": "keyup"
+            "PACKAGE": "libtools"
         },
         "TEMP_CREDENTIALS": {
             "PROFILE_NAMES": []
@@ -238,11 +238,11 @@ to for daily access key rotation @ 0700 hrs every morning:
 
 .. code:: bash
 
-    # keyup auto rotate
-    0 7 * * *  keyup --profile johndoe --operation up --auto
+    # libtools auto rotate
+    0 7 * * *  libtools --profile johndoe --operation up --auto
 
 
-The ``--auto`` switch supresses all output to stdout, so ``keyup`` produces no output
+The ``--auto`` switch supresses all output to stdout, so ``libtools`` produces no output
 to the cli.   Logging output is retained and the only way to troubleshoot any issues while
 operating in auto mode; thus, it is highly recommended that you ensure that logging is
 enabled and working.
@@ -274,8 +274,8 @@ You should see the following output:
     # Notice that tasks will be started based on the cron's system
     # daemon's notion of time and timezones.
 
-    # keyup auto rotate
-    0 7 * * 5  keyup --profile myUser --operation up --auto
+    # libtools auto rotate
+    0 7 * * 5  libtools --profile myUser --operation up --auto
 
 
 Other Crontab Scheduler Examples:
@@ -286,7 +286,7 @@ Weekly Rotation every Sat 10:00 AM:
 .. code:: bash
 
     # weekly
-    0 10 * * 6  KEYUP=$(which keyup);  $KEYUP --profile johndoe --operation up --auto
+    0 10 * * 6  KEYUP=$(which libtools);  $KEYUP --profile johndoe --operation up --auto
 
 
 Weekly access key rotation (every Friday) for another IAM user, but using your
@@ -294,8 +294,8 @@ account permissions to perform the rotation:
 
 .. code:: bash
 
-    # keyup auto rotate
-    0 7 * * 5 keyup --profile myUser  --operation up  --auto
+    # libtools auto rotate
+    0 7 * * 5 libtools --profile myUser  --operation up  --auto
 
 
 
@@ -308,22 +308,22 @@ Back to :ref:`Frequently Asked Questions` Top
 **Q**: Is it ok to rotate access keys while I have `STS temporary credentials <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html>`__ present in my local awscli configuration?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**A**: ``keyup`` has special logic to avoid disrupting STS Temporary Credentials if they
+**A**: ``libtools`` has special logic to avoid disrupting STS Temporary Credentials if they
        are present in your local awscli configuration.  The following summarizes the
-       logic ``keyup`` employs when dealing with temporary credentials:
+       logic ``libtools`` employs when dealing with temporary credentials:
 
-        - ``keyup`` detects when STS credentials are present in the local credentials files
+        - ``libtools`` detects when STS credentials are present in the local credentials files
 
-        - If temporary credentials are detected, ``keyup`` attempts to determine if
+        - If temporary credentials are detected, ``libtools`` attempts to determine if
           they are active by trying to authenicate to `Amazon STS <https://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html>`__
           using 2 sets of temporary credentials.
 
         - **If authentication fails**:
-          ``keyup`` assumes the temporary credentials are expired and ignores them.
+          ``libtools`` assumes the temporary credentials are expired and ignores them.
           key rotation proceeds automatically as normal
 
         - **If authentication succeeds**:
-          ``keyup`` assumes the temporary credentials are active and prohibits
+          ``libtools`` assumes the temporary credentials are active and prohibits
           access key rotation.
 
 
@@ -343,7 +343,7 @@ Miscellaneous Questions
 
 **A**: Call the ``keyconfig`` script.
 
-    You can display ``keyup``'s local configuration file via by calling the console script:
+    You can display ``libtools``'s local configuration file via by calling the console script:
 
 .. code:: bash
 

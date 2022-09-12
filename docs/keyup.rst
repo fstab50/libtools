@@ -24,10 +24,10 @@ Module List
 
 .. _cauth:
 
-keyup.cauth module
+libtools.cauth module
 ---------------------------
 
-.. automodule:: keyup.cauth
+.. automodule:: libtools.cauth
     :members:
     :undoc-members:
     :show-inheritance:
@@ -39,10 +39,10 @@ keyup.cauth module
 
 .. _cli:
 
-keyup.cli module
+libtools.cli module
 -----------------
 
-.. automodule:: keyup.cli
+.. automodule:: libtools.cli
     :members:
     :undoc-members:
     :show-inheritance:
@@ -53,10 +53,10 @@ keyup.cli module
 
 .. _colors:
 
-keyup.colors module
+libtools.colors module
 ----------------------
 
-.. automodule:: keyup.colors
+.. automodule:: libtools.colors
     :members:
     :undoc-members:
     :show-inheritance:
@@ -67,10 +67,10 @@ keyup.colors module
 
 .. _configuration:
 
-keyup.configuration module
+libtools.configuration module
 ----------------------------
 
-.. automodule:: keyup.configuration
+.. automodule:: libtools.configuration
     :members:
     :undoc-members:
     :show-inheritance:
@@ -81,10 +81,10 @@ keyup.configuration module
 
 .. _help_menu:
 
-keyup.help_menu module
+libtools.help_menu module
 --------------------------
 
-.. automodule:: keyup.help_menu
+.. automodule:: libtools.help_menu
     :members:
     :undoc-members:
     :show-inheritance:
@@ -95,10 +95,10 @@ keyup.help_menu module
 
 .. _keyconfig:
 
-keyup.keyconfig module
+libtools.keyconfig module
 ---------------------------
 
-.. automodule:: keyup.keyconfig
+.. automodule:: libtools.keyconfig
     :members:
     :undoc-members:
     :show-inheritance:
@@ -111,10 +111,10 @@ keyup.keyconfig module
 .. _logd:
 
 
-keyup.logd module
+libtools.logd module
 ------------------
 
-.. automodule:: keyup.logd
+.. automodule:: libtools.logd
     :members:
     :undoc-members:
     :show-inheritance:
@@ -126,10 +126,10 @@ keyup.logd module
 
 .. _map:
 
-keyup.map module
+libtools.map module
 ------------------
 
-.. automodule:: keyup.map
+.. automodule:: libtools.map
     :members:
     :undoc-members:
     :show-inheritance:
@@ -140,10 +140,10 @@ keyup.map module
 
 .. _menu:
 
-keyup.menu module
+libtools.menu module
 ------------------
 
-.. automodule:: keyup.menu
+.. automodule:: libtools.menu
     :members:
     :undoc-members:
     :show-inheritance:
@@ -154,10 +154,10 @@ keyup.menu module
 
 .. _progress:
 
-keyup\.progress module
+libtools\.progress module
 ----------------------
 
-.. automodule:: keyup.progress
+.. automodule:: libtools.progress
     :members:
     :undoc-members:
     :show-inheritance:
@@ -168,10 +168,10 @@ keyup\.progress module
 
 .. _statics:
 
-keyup\.statics module
+libtools\.statics module
 ---------------------
 
-.. automodule:: keyup.statics
+.. automodule:: libtools.statics
     :members:
     :undoc-members:
     :show-inheritance:
@@ -182,10 +182,10 @@ keyup\.statics module
 
 .. _threadprogress:
 
-keyup\.thread_progress module
+libtools\.thread_progress module
 ------------------------------
 
-.. automodule:: keyup.thread_progress
+.. automodule:: libtools.thread_progress
     :members:
     :undoc-members:
     :show-inheritance:
@@ -197,10 +197,10 @@ keyup\.thread_progress module
 
 .. _iamoperations:
 
-keyup\.iam_operations module
+libtools\.iam_operations module
 -----------------------------
 
-.. automodule:: keyup.iam_operations
+.. automodule:: libtools.iam_operations
     :members:
     :undoc-members:
     :show-inheritance:
@@ -212,10 +212,10 @@ keyup\.iam_operations module
 
 .. _listops:
 
-keyup\.list_ops module
+libtools\.list_ops module
 ---------------------------
 
-.. automodule:: keyup.list_ops
+.. automodule:: libtools.list_ops
     :members:
     :undoc-members:
     :show-inheritance:
@@ -226,10 +226,10 @@ keyup\.list_ops module
 
 .. _script_utils:
 
-keyup.script_utils module
+libtools.script_utils module
 ---------------------------
 
-.. automodule:: keyup.script_utils
+.. automodule:: libtools.script_utils
     :members:
     :undoc-members:
     :show-inheritance:
@@ -240,10 +240,10 @@ keyup.script_utils module
 
 .. _oscodes_unix:
 
-keyup\.oscodes_unix module
+libtools\.oscodes_unix module
 ---------------------------
 
-.. automodule:: keyup.oscodes_unix
+.. automodule:: libtools.oscodes_unix
     :members:
     :undoc-members:
     :show-inheritance:
@@ -254,10 +254,10 @@ keyup\.oscodes_unix module
 
 .. _oscodes_win:
 
-keyup\.oscodes_win module
+libtools\.oscodes_win module
 ---------------------------
 
-.. automodule:: keyup.oscodes_win
+.. automodule:: libtools.oscodes_win
     :members:
     :undoc-members:
     :show-inheritance:

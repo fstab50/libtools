@@ -2,7 +2,7 @@
 IAM Permissions
 ^^^^^^^^^^^^^^^^
 
-Required |permissions-link1| permissions to use **keyup**.
+Required |permissions-link1| permissions to use **libtools**.
 
 --------------
 
@@ -20,7 +20,7 @@ Permissions Contents
 Required IAM Policy Permissions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-There are minimal |permissions-link1| permissions required to return valid results for an IAM user. If an iam user referenced in the local awscli configuration file does not have adequate permissions to return access key information, **keyup** will simply skip the user and omit the iam user from the key report.
+There are minimal |permissions-link1| permissions required to return valid results for an IAM user. If an iam user referenced in the local awscli configuration file does not have adequate permissions to return access key information, **libtools** will simply skip the user and omit the iam user from the key report.
 
 The following IAM policy must be assigned to each IAM user either via group policy assignment or directly attached to the IAM user identity in the AWS Account.
 
@@ -143,7 +143,7 @@ The iam policy provides explicit permissions to an individual user to read and u
 
 .. note::
 
-    The IAM policy permissions allow keyup to rotate access keys *without requiring a*
+    The IAM policy permissions allow libtools to rotate access keys *without requiring a*
     *Multi-factor Authorization (MFA, 2-factor) code*. This is a recommended policy provided all
     other permissions to provision or modify resources in the AWS Account mandate a 2-factor
     MFA code.
@@ -159,19 +159,19 @@ The iam policy provides explicit permissions to an individual user to read and u
 
 ``iam:CreateAccessKey``:
 
-    * Required for keyup to generate new access keys when rotating keys.
+    * Required for libtools to generate new access keys when rotating keys.
 
 ``iam:DeleteAccessKey``:
 
-    * Required by keyup to delete deprecated access keys after a new set is generated.
+    * Required by libtools to delete deprecated access keys after a new set is generated.
 
 ``iam:ListAccessKeys``:
 
-    * Required by keyup to list access keys for a given IAM user.
+    * Required by libtools to list access keys for a given IAM user.
 
 ``iam:GetAccessKeyLastUsed``:
 
-    * Required by keyup to retrieve access key meta data (data about a user's key set).
+    * Required by libtools to retrieve access key meta data (data about a user's key set).
 
 
 

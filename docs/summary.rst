@@ -5,10 +5,10 @@
 Code Summary Index
 ============================================
 
-**Module** ``keyup.cli``
+**Module** ``libtools.cli``
 
 
-.. py:module:: keyup.cli
+.. py:module:: libtools.cli
    :noindex:
 
 
@@ -39,10 +39,10 @@ Code Summary Index
     main
 
 
-**Module** ``keyup.cauth``
+**Module** ``libtools.cauth``
 
 
-.. py:module:: keyup.cauth
+.. py:module:: libtools.cauth
    :noindex:
 
 

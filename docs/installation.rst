@@ -65,7 +65,7 @@ Redhat Enterprise Linux v7.X / Centos 7.X
 
 .. code:: bash
 
-        $ pip3 install keyup --user
+        $ pip3 install libtools --user
 
 -  :ref:`verify`
 
@@ -107,7 +107,7 @@ Ubuntu v16.04+, Ubuntu Variants
 
 .. code:: bash
 
-        $ pip3 install keyup --user
+        $ pip3 install libtools --user
 
 -  :ref:`verify`
 
@@ -130,11 +130,11 @@ Amazon Linux v2016+
 
         $ sudo yum install python35-pip / python34-pip    # latest your distribution supports
 
--  Install keyup:
+-  Install libtools:
 
 .. code:: bash
 
-        $ pip3 install keyup --user
+        $ pip3 install libtools --user
 
 -  :ref:`verify`
 
@@ -149,11 +149,11 @@ Microsoft Windows 7
 
 -  Install Python3 by downloading the latest `Python3 version for Windows <https://www.python.org/downloads/windows/>`__
 
-- Install **keyup**:
+- Install **libtools**:
 
 .. code:: powershell
 
-    $ pip install keyup
+    $ pip install libtools
 
 -  :ref:`verify`
 
@@ -168,11 +168,11 @@ Microsoft Windows 10
 
 -  Install Python3 by downloading the latest `Python3 version for Windows <https://www.python.org/downloads/windows/>`__
 
-- Install **keyup**:
+- Install **libtools**:
 
 .. code:: powershell
 
-    $ pip install keyup
+    $ pip install libtools
 
 -  :ref:`verify`
 
@@ -187,13 +187,13 @@ Build Source Code
 
 To install locally from source code, do the following:
 
-Check out the ``keyup`` code repository:
+Check out the ``libtools`` code repository:
 
 .. code:: bash
 
-    $ git clone https://blakeca00@bitbucket.org/blakeca00/keyup.git
+    $ git clone https://blakeca00@bitbucket.org/blakeca00/libtools.git
 
-    $ cd keyup/
+    $ cd libtools/
 
 Display the list of make targets:
 
@@ -228,11 +228,11 @@ Verify Your Installation
 
 .. code:: bash
 
-    $ keyup --version
+    $ libtools --version
 
 
-.. image:: ../assets/keyup-version.png
-    :alt: 'verify keyup installation'
+.. image:: ../assets/libtools-version.png
+    :alt: 'verify libtools installation'
     :scale: 100%
 
 

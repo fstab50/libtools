@@ -2,7 +2,7 @@
 Key Report
 ^^^^^^^^^^
 
-Overview of keyup's Key Report and required `Identity Access Management (IAM) <https://docs.aws.amazon.com/iam/index.html>`__ permissions.
+Overview of libtools's Key Report and required `Identity Access Management (IAM) <https://docs.aws.amazon.com/iam/index.html>`__ permissions.
 
 --------------
 
@@ -22,7 +22,7 @@ Key Report Contents
 Report Overview
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-``keyup`` provides a parameter to produce a report for all iam users referenced in the local |location_link1| configuration file. The report shows the expired status of all access keys for these users. This is valuable because it allows the user to understand which iam users require renewed access keys without running **keyup** for each iam user account individually.
+``libtools`` provides a parameter to produce a report for all iam users referenced in the local |location_link1| configuration file. The report shows the expired status of all access keys for these users. This is valuable because it allows the user to understand which iam users require renewed access keys without running **libtools** for each iam user account individually.
 
 .. |location_link1| raw:: html
 
@@ -36,7 +36,7 @@ Execute the following command to run the key report for all iam users in the loc
 
 .. code:: bash
 
-        $ keyup --key-report
+        $ libtools --key-report
 
 
 .. figure:: ../assets/keyreport-valid.png
@@ -54,7 +54,7 @@ Required User Permissions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 There are minimal `Identity Access Management (IAM) <https://docs.aws.amazon.com/iam/index.html>`__
-permissions required to return valid results for a each IAM user. If an iam user referenced in the local awscli configuration file does not have adequate permissions to return results for the key report, **keyup** will simply skip the user and omit the iam user from the key report.
+permissions required to return valid results for a each IAM user. If an iam user referenced in the local awscli configuration file does not have adequate permissions to return results for the key report, **libtools** will simply skip the user and omit the iam user from the key report.
 
 The following IAM policy must be assigned to each IAM user either via group policy assignment or directly attached to the IAM user identity in the AWS Account.
 

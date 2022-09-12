@@ -2,10 +2,10 @@
 Purpose
 --------
 
-``keyup`` automates IAM user access key rotation from the cli by allowing ad hoc or
+``libtools`` automates IAM user access key rotation from the cli by allowing ad hoc or
 scheduled renewal of your access key credentials via the Amazon API's.
 
-**keyup**:
+**libtools**:
 
     * is a safe and reliable way to rotate (renew) access keys to Amazon Web Services as frequently as you wish, with minimal effort and risk.
     * requires only the profile name of your IAM user in your local `awscli configuration <https://docs.aws.amazon.com/cli/latest/reference/>`__
@@ -42,10 +42,10 @@ Before starting, please take a moment to read the following:
 
 **Other Resources**:
 
--  Source Code: `keyup bitbucket repository <https://bitbucket.org/blakeca00/keyup>`__
+-  Source Code: `libtools bitbucket repository <https://bitbucket.org/blakeca00/libtools>`__
 -  Amazon `Secure Token Service (STS) <https://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html>`__ Documentation
 -  Amazon Web Services' `Command Line Interface (awscli) <https://docs.aws.amazon.com/cli/latest/reference/>`__ Documentation
--  **keyup** `Open Source License Agreement <./license.html>`__
+-  **libtools** `Open Source License Agreement <./license.html>`__
 
 **Current Release**:
 
@@ -64,12 +64,12 @@ Documentation
 
 **Online**:
 
-- Complete html documentation available at `http://keyup.readthedocs.io <http://keyup.readthedocs.io>`__.
+- Complete html documentation available at `http://libtools.readthedocs.io <http://libtools.readthedocs.io>`__.
 
 **Download**:  Available via download in the formats below
 
-- `pdf format <https://readthedocs.org/projects/keyup/downloads/pdf/latest/>`__
-- `Amazon Kindle <https://readthedocs.org/projects/keyup/downloads/epub/latest/>`__ (epub) format
+- `pdf format <https://readthedocs.org/projects/libtools/downloads/pdf/latest/>`__
+- `Amazon Kindle <https://readthedocs.org/projects/libtools/downloads/epub/latest/>`__ (epub) format
 
 --------------
 
@@ -84,7 +84,7 @@ Display help menu to see available options and functionality.
 
 .. code:: bash
 
-        $  keyup  --help
+        $  libtools  --help
 
 .. figure:: ../assets/help-menu.png
    :alt:

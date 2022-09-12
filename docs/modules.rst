@@ -1,8 +1,8 @@
 
-keyup Package
+libtools Package
 ==============
 
 .. toctree::
    :maxdepth: 4
 
-   keyup
+   libtools

@@ -1,5 +1,5 @@
 ============================================
-keyup | Automated AWS Access Key Rotation
+libtools | Automated AWS Access Key Rotation
 ============================================
 
 .. toctree::

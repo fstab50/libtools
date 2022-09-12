@@ -3,7 +3,7 @@ Use Cases
 ^^^^^^^^^^
 
 
-3 Main Use Cases for keyup:
+3 Main Use Cases for libtools:
 
 - :ref:`list-keys`
 - :ref:`rotate-keys-manual`
@@ -21,7 +21,7 @@ Display access keys for a specific IAM user in an AWS Account.
 .. code:: bash
 
 
-        $ keyup --profile [PROFILE] --operation list
+        $ libtools --profile [PROFILE] --operation list
 
 
 ``[PROFILE]``:
@@ -50,7 +50,7 @@ code if required
 
 .. code:: bash
 
-        $ keyup --profile [PROFILE] --operation up
+        $ libtools --profile [PROFILE] --operation up
 
 
 ``[PROFILE]``:
@@ -62,7 +62,7 @@ code if required
 
     * update (rotate, or renew) key operation.
     * Creates new access keyset (access key, secret key), installs keys, delete old keys from AWS
-    * Short for ``keyup``, which can also be used
+    * Short for ``libtools``, which can also be used
 
 
 **Rotate Keys** output (click below to enlarge imges)
@@ -108,12 +108,12 @@ similar scheduling mechanism
 
 .. code:: bash
 
-        $ keyup --profile [PROFILE] --operation up --auto
+        $ libtools --profile [PROFILE] --operation up --auto
 
 
 ``[PROFILE]``:
 
-    * profile from the local awscli config that is the IAM user for whom you wish to keyup
+    * profile from the local awscli config that is the IAM user for whom you wish to libtools
 
 ``up``:
 
@@ -121,7 +121,7 @@ similar scheduling mechanism
 
 ``--auto``:
 
-    * For use when calling keyup from an automated scheduler or other programmatic execution mechanism.
+    * For use when calling libtools from an automated scheduler or other programmatic execution mechanism.
     * Flag suppresses all stdout output
     * Log output to the filesystem is retained.
 
