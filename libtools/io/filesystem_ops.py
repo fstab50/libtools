@@ -21,7 +21,8 @@ def clear_directory(directory):
         directory given as a parameter.
 
     Returns:
-        TYPE:  Boolean, Success || Failure
+        TYPE:  Boolean, Success (dir empty) || Failure (dir not empty)
+
     """
     try:
         for x in os.listdir(directory):
