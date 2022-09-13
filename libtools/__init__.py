@@ -36,7 +36,7 @@ except Exception:
 logger = logd.getLogger(__version__)
 
 # dependendent imports below this line
-from libtools.io import BinaryFile, is_text, export_json_object
+from libtools.io import BinaryFile, clear_directory, is_text, export_json_object
 from libtools.common import get_os, terminal_size
 from libtools.common import read_local_config, import_file_object, os_parityPath, user_home
 from libtools.concurrency import split_list
