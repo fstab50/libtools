@@ -81,8 +81,8 @@ else:
     LICENSE_DESC = 'General Public License v3'
 
     # logging parameters
-    enable_logging = False
-    log_mode = 'FILE'
+    enable_logging = True
+    log_mode = 'STREAM'
     log_filename = PACKAGE + '.log'
     log_dir = os_parityPath(os.path.join(root, 'logs'))
     log_path = os_parityPath(os.path.join(log_dir, log_filename))
