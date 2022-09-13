@@ -12,7 +12,6 @@ import os
 from shutil import rmtree
 from libtools import logger
 
-logger.info('filesystem_ops.py:  logger working')
 
 
 def clear_directory(directory):
@@ -27,11 +26,11 @@ def clear_directory(directory):
     try:
         for x in os.listdir(directory):
             if os.path.isdir(os.path.join(directory, x)):
-                print('Removing directory %s' % x)
                 rmtree(os.path.join(directory, x))
+                logger.info('Removed directory %s' % x)
             elif os.path.isfile(os.path.join(directory, x)):
-                print('Removing file %s' % x)
                 os.remove(os.path.join(directory, x))
+                logger.info('Removed file %s' % x)
     except Exception:
         #logger.warning('%s Directory not found.  Error code %s' % x, sys.exit(exit_codes['E_MISC']['Code']))
         logger.warning('Directory object not found.')
