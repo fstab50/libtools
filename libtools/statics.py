@@ -73,7 +73,7 @@ except KeyError as e:
 
 else:
 
-    root = '/tmp'
+    root = user_home
 
     # project
     PACKAGE = 'libtools'
@@ -82,7 +82,7 @@ else:
 
     # logging parameters
     enable_logging = True
-    log_mode = 'STREAM'
+    log_mode = 'FILE'
     log_filename = PACKAGE + '.log'
     log_dir = os_parityPath(os.path.join(root, 'logs'))
     log_path = os_parityPath(os.path.join(log_dir, log_filename))
