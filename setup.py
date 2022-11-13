@@ -31,7 +31,7 @@ import libtools
 
 
 requires = [
-    'Pygments>=2.4.2'
+    'Pygments>=2.12.2'
 ]
 
 
@@ -124,6 +124,7 @@ setup(
         'Development Status :: 4 - Beta',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'Operating System :: POSIX :: Linux',
     ],
@@ -132,5 +133,10 @@ setup(
     install_requires=requires,
     setup_requires=requires,
     python_requires='>=3.6, <4',
+    entry_points={
+        'console_scripts': [
+            'colorize=libtools.io.colorize:colorize'
+        ]
+    },
     zip_safe=False
 )
