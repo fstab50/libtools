@@ -22,6 +22,16 @@ def colorize():
         print(subprocess.getoutput(cmd))
         return True
 
+    def help_menu():
+        menu = """
+        colorize: command-line utility to generate colored syntax highlighting of any
+        filesystem code artifact provided as a parameter.
+
+            Use:
+                $  colorize myprogram.sh
+        """
+        print(menu)
+
     try:
         target = sys.argv[1]
 
@@ -31,6 +41,7 @@ def colorize():
             execute(target)
 
     except IndexError:
-        stdout_message('You must provide filename of a code artifact when calling colorize', 'WARN')
+        stdout_message('You must provide filename of a code artifact when calling colorize', 'WARN', indent=12)
+        help_menu()
         pass
     return
