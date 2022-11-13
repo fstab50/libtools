@@ -8,21 +8,11 @@ from shutil import which
 from libtools import stdout_message
 
 """
-def colorize(file):
-    cmd = which('pygmentize') + ' ' + str(file)
-    print(subprocess.getoutput(cmd))
-    return
+Command-line Utility to generate colored syntax highlighting of any
+filesystem code artifact provided as a parameter.
 
-
-target = sys.argv[1]
-
-if target.endswith('.html'):
-    print(colorize(target))
-else:
-    colorize(target)
-
-sys.exit(0)
-
+Use:
+    $  colorize myprogram.sh
 """
 
 
