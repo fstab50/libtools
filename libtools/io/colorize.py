@@ -13,6 +13,9 @@ filesystem code artifact provided as a parameter.
 
 Use:
     $  colorize myprogram.sh
+
+Note:  This module requires that the python pygments module be
+       installed as it provides the 'pygmentize' executable
 """
 
 
