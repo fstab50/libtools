@@ -10,6 +10,9 @@ Use:
 from shutil import which
 from libtools import logger
 
+"""
+THIS SHIT WORKS IN REPL, BUT NOT WHEN INCLU WITH LIBTOOLS.  WTF
+"""
 
 def is_text(path):
     """
@@ -31,8 +34,10 @@ def is_text(path):
         return None
 
     try:
+        abspath = path if path.startswith('/') else os.path.join(os.getcwd(), path)
+        print(f'\nabspath is: {abspath}\n')
 
-        f = os.popen('file -bi ' + path, 'r')
+        f = os.popen('file -bi ' + abspath, 'r')
         contents = f.read().strip()
 
     except Exception:
