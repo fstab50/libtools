@@ -21,12 +21,11 @@ def awscli_region(profile_name):
     Raises:
         Exception if profile_name not found in config
     """
-    awscli = 'aws'
-
-    if not which(awscli):
-        print('Unable to locate awscli')
+    if not which('aws'):
+        print('\nUnable to locate awscli. Fail\n')
         return None
     else:
+        awscli = which('aws')
         cmd = awscli + ' configure get ' + profile_name + '.region'
 
     try:
